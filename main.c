@@ -13,6 +13,7 @@ void display() {
 }
 
 int main() {
+  //Insertando Comentario
   char filename[256];
 
   // Pedir al usuario el nombre del archivo BMP
