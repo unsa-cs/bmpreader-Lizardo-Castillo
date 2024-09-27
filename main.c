@@ -12,7 +12,9 @@ void display() {
   glFlush();
 }
 
-int main() {
+int main(int argc, char **argv) {
+  /*
+  //Insertando Comentario
   char filename[256];
 
   // Pedir al usuario el nombre del archivo BMP
@@ -25,6 +27,20 @@ int main() {
   // Inicializar GLUT
   int argc = 1; // Necesario para evitar problemas con glutInit
   char *argv[1] = { "" }; // Argumento vacío para GLUT
+  */
+
+  if (argc < 2) {
+    fprintf(stderr, "Uso: %s <nombre_archivo_bmp>", argv[0]);
+    return 1;
+  }
+
+  char *filename = argv[1];
+  image = readBMP(filename);
+  if(!image) {
+    fprintf(stderr, "Error: No se puede cargar el archivo BMP. \n");
+    return 1;
+  }
+
   glutInit(&argc, argv);
 
   // Establecer el modo de visualización

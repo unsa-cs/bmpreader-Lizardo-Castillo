@@ -28,5 +28,12 @@ void freeBMP(BMPImage *image) {
 }
 
 void drawBMP(BMPImage *image) {
+  for (int i = 0; i < image->width * image->height; i++) {
+    unsigned char *pixel = &image->data[i * 3];
+    unsigned char gray = (unsigned char)(0.299 * pixel[2] + 0.587 * pixel[1] + 0.114 * pixel[0]);
+    pixel[0] = gray;
+    pixel[1] = gray;
+    pixel[2] = gray;
+  }
   glDrawPixels(image->width, image->height, GL_BGR, GL_UNSIGNED_BYTE, image->data);
 }
