@@ -28,6 +28,5 @@ void freeBMP(BMPImage *image) {
 }
 
 void drawBMP(BMPImage *image) {
-  //Lugar donde modificare el archivo para el ejercicio 1
   glDrawPixels(image->width, image->height, GL_BGR, GL_UNSIGNED_BYTE, image->data);
 }
